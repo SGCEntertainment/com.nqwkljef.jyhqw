@@ -1,0 +1,5 @@
+﻿El equipo de	Juegos	Sobre	D	G
+Perú	4	4	0	3
+Atlas	1	1	0	0
+Atlas	10	10	0	0
+Perú	1	1	0	1

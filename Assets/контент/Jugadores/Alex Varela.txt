@@ -1,0 +1,11 @@
+﻿Papel
+El delantero
+
+La edad
+26
+
+Altura/peso
+183/86
+
+El grupo de trabajo de la pierna
+El de la derecha
