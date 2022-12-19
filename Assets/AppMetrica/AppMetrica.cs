@@ -1,16 +1,26 @@
+/*
+ * Version for Unity
+ * © 2015-2020 YANDEX
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * https://yandex.com/legal/appmetrica_sdk_agreement/
+ */
+
 using System;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class AppMetrica : MonoBehaviour
 {
     public const string VERSION = "5.0.0";
 
     private static bool s_isInitialized;
-    private bool _actualPauseStatus;
 
     private static IYandexAppMetrica s_metrica;
     private static readonly object s_syncRoot = new UnityEngine.Object();
+
+    private bool _actualPauseStatus;
+
 
     public static IYandexAppMetrica Instance
     {
@@ -36,6 +46,21 @@ public class AppMetrica : MonoBehaviour
             return s_metrica;
         }
     }
+
+    private void Awake()
+    {
+        if (!s_isInitialized)
+        {
+            s_isInitialized = true;
+            DontDestroyOnLoad(gameObject);
+            SetupMetrica();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator Start()
     {
         while (Engine.Instance.IsWaitAppmetrica)
