@@ -47,19 +47,6 @@ public class AppMetrica : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        if (!s_isInitialized)
-        {
-            s_isInitialized = true;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     IEnumerator Start()
     {
         while (Engine.Instance.IsWaitAppmetrica)
