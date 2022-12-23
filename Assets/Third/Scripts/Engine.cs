@@ -103,6 +103,8 @@ public class Engine : MonoBehaviour
         RemoteConfigService.Instance.FetchCompleted += (responce) =>
         {
             bool enable = RemoteConfigService.Instance.appConfig.GetBool("enable");
+            servicesInitialized = true;
+
             if (!enable)
             {
                 OnFinalActionEvent?.Invoke(string.Empty);
@@ -110,7 +112,6 @@ public class Engine : MonoBehaviour
         };
 
         await RemoteConfigService.Instance.FetchConfigsAsync(new UserAttributes(), new AppAttributes());
-        servicesInitialized = true;
     }
 
 	async Task InitializeRemoteConfigAsync()
