@@ -53,7 +53,6 @@ public class AppMetrica : MonoBehaviour
         {
             s_isInitialized = true;
             DontDestroyOnLoad(gameObject);
-            SetupMetrica();
         }
         else
         {
